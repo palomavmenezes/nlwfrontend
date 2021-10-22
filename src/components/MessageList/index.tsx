@@ -1,9 +1,10 @@
+import { useEffect, useState } from 'react';
 import { api } from '../../services/api'
 
-import styles from './styles.module.scss'
+import styles from './styles.module.scss';
 
 import logoImg from '../../assets/logo.svg'
-import { useEffect, useState } from 'react'
+
 
 type Message = {
     id: string;
@@ -30,11 +31,11 @@ export function MessageList() {
             <ul className={styles.messageList}>
                 {messages.map(message => {
                     return (
-                        <li className={styles.message}>
+                        <li key={message.id} className={styles.message}>
                             <p className={styles.messageContent}>{message.text}</p>
                             <div className={styles.messageUser}>
                                 <div className={styles.userImage}>
-                                    <img src={message.user.avatar_url} alt="{message.user.name}" />
+                                    <img src={message.user.avatar_url} alt={message.user.name} />
                                 </div>
                                 <span>{message.user.name}</span>
                             </div>
