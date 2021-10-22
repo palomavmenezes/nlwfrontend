@@ -43,7 +43,7 @@ export function AuthProvider(props: AuthProvider) {
 
         const { token, user } = response.data
 
-        localStorage.setItem('@dowhite:token', token)
+        localStorage.setItem('@dowhile:token', token)
 
         api.defaults.headers.common.authorization = `Bearer ${token}`;
 
@@ -73,7 +73,7 @@ export function AuthProvider(props: AuthProvider) {
 
         if (hasGithubCode) {
             const [urlWithoutCode, githubCode] = url.split('?code=')
-        
+
             window.history.pushState({}, '', urlWithoutCode);
 
 
